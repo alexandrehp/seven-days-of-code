@@ -1,6 +1,6 @@
 package br.com.alura.service;
 
-import br.com.alura.controller.FilmController;
+import br.com.alura.controller.TestController;
 import br.com.alura.model.Movie;
 import br.com.alura.util.JsonParser;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ import java.util.Map;
 @Service
 public class FilmServiceImpl implements FilmService {
 
-    private static final Logger logger = LoggerFactory.getLogger(FilmController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Override
     public List<Movie> getFilm(){
@@ -25,7 +25,7 @@ public class FilmServiceImpl implements FilmService {
         List<Movie> retorno = new ArrayList<Movie>();
 
         try {
-            String imdbKey = "teste";
+            String imdbKey = "k_kevl4t4w";
             String uri = "https://imdb-api.com/en/API/Top250Movies/" + imdbKey;
 
             HttpHeaders headers = new HttpHeaders();
