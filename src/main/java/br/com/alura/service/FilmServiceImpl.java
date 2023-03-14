@@ -5,6 +5,7 @@ import br.com.alura.model.Movie;
 import br.com.alura.util.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -19,14 +20,17 @@ public class FilmServiceImpl implements FilmService {
 
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
+    @Value("${imdb.apikey}")
+    private String apiKey;
+
     @Override
     public List<Movie> getFilm(){
 
         List<Movie> retorno = new ArrayList<Movie>();
 
         try {
-            String imdbKey = "k_kevl4t4w";
-            String uri = "https://imdb-api.com/en/API/Top250Movies/" + imdbKey;
+            //String imdbKey = "k_kevl4t4w";
+            String uri = "https://imdb-api.com/en/API/Top250Movies/" + apiKey;
 
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
